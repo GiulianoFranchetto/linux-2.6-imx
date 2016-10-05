@@ -397,12 +397,22 @@
 };
 #endif
 
+/** Adding the lsm6ds3 accelero */
 &i2c1 {
 	clock-frequency = <400000>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c1>;
 	status = "okay";
 
+	lsm6ds3@6b {
+		pinctrl-names = "default";
+		compatible = "st,lsm6ds3";
+		reg = <0x6b>;
+		interrupts = <17 0x0>;
+		interrupt-parent = <&gpio4>;
+
+		st,drdy-int-pin = <1>;
+	};
 };
 
 
