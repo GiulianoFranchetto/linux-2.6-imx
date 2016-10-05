@@ -812,3 +812,5 @@ config INPUT_ISL29023
 	  will be called isl29023.
 
 endif
+
+source "drivers/input/misc/lsm6ds3/Kconfig"
