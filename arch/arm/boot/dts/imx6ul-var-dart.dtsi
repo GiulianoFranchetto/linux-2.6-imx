@@ -409,7 +409,7 @@
 		compatible = "st,lsm6ds3";
 		reg = <0x6b>;
 		interrupts = <17 0x0>;
-		interrupt-parent = <&gpio4>;
+		interrupt-parent = <&gpio3>;
 
 		st,drdy-int-pin = <1>;
 	};
