@@ -274,14 +274,14 @@
 	status = "okay";
 };
 
-&tsc {
+/*&tsc {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_tsc>;
 	xnur-gpio = <&gpio1 3 0>;
 	measure_delay_time = <0xffff>;
 	pre_charge_time = <0xfff>;
 	status = "disabled";
-};
+};*/
 
 /* Console Uart */
 &uart1 {
@@ -408,9 +408,8 @@
 		pinctrl-names = "default";
 		compatible = "st,lsm6ds3";
 		reg = <0x6b>;
-		interrupts = <17 0x0>;
-		interrupt-parent = <&gpio3>;
-
+		interrupts = <9 0>;
+		interrupt-parent = <&gpio1>;
 		st,drdy-int-pin = <1>;
 	};
 };
@@ -674,14 +673,14 @@
 			>;
 		};
 
-		pinctrl_tsc: tscgrp {
+		/*pinctrl_tsc: tscgrp {
 			fsl,pins = <
 				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
 				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0
 				MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0xb0
 				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
 			>;
-		};
+		};*/
 
 		pinctrl_sai1: sai1grp {
 			fsl,pins = <
