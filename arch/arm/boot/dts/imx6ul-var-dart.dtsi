@@ -404,14 +404,28 @@
 	pinctrl-0 = <&pinctrl_i2c1>;
 	status = "okay";
 
-	lsm6ds3@6b {
+	/*lsm6ds3@6b {
 		pinctrl-names = "default";
 		compatible = "st,lsm6ds3";
 		reg = <0x6b>;
-		interrupts = <9 0>;
 		interrupt-parent = <&gpio1>;
+		interrupts = <9 0>;
 		st,drdy-int-pin = <1>;
-	};
+	};*/
+	/*lsm6ds0@0x6B {
+		compatible = "st,lsm6ds0";
+		reg = <0x6B>;
+		rot-matrix = /bits/ 16 <(1) (0) (0)
+					(0) (1) (0)
+					(0) (0) (1)>;
+		g-poll-interval = <100>;
+		g-min-interval = <2>;
+		g-fs-range = <0>;
+		x-poll-interval = <100>;
+		x-min-interval = <1>;
+		x-fs-range = <0>;
+		aa-filter-bw = <0>;
+	};*/
 };
 
 
@@ -421,6 +435,14 @@
 	pinctrl-0 = <&pinctrl_i2c2>;
 	status = "okay";
 	
+	lsm6ds3@6b {
+		compatible = "st,lsm6ds3";
+		reg = <0x6b>;
+		interrupt-parent = <&gpio1>;
+		interrupts = <9 IRQ_TYPE_LEVEL_HIGH>;
+		st,drdy-int-pin = <1>;
+	};
+
 	codec: wm8731@1a {
 		compatible = "wlf,wm8731";
 		reg = <0x1a>;
@@ -478,6 +500,7 @@
 				MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
 				MX6UL_PAD_SNVS_TAMPER4__GPIO5_IO04	0x1b0b0	/* BT Enable */
 				MX6UL_PAD_SNVS_TAMPER0__GPIO5_IO00	0x1b0b0
+				MX6UL_PAD_GPIO1_IO09__GPIO1_IO09        0x80000000
 			>;
 		};
 
